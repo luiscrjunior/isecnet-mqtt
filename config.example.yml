@@ -18,3 +18,12 @@ mqtt_user: usuario
 
 #Senha MQTT
 mqtt_passwd: senha
+
+#De quanto em quanto tempo o status da central vai ser enviado (em segundos)
+send_status_interval: 10
+
+#Tópico MQTT que a mensagem de status do alarme será enviado
+mqtt_topic_alarm_status: "alarm/status"
+
+#Tópico MQTT para escutar os controles
+mqtt_topic_alarm_control: "alarm/control"
