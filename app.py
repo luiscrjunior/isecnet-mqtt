@@ -40,14 +40,26 @@ def mqtt_handle_message(client, userdata, message):
         return
     logger.info("Recebida mensagem no tópico '%s': %s"%(config.mqtt_topic_alarm_control, cmd))
     try:
-        if cmd == "ACTIVATE_PARTITION_A":
+        if cmd == "ACTIVATE_ALARM":
+            alarm.activate_alarm
+        elif cmd == "DEACTIVATE_ALARM":
+            alarm.deactivate_alarm
+        elif cmd == "ACTIVATE_PARTITION_A":
             alarm.activate_partition_A
         elif cmd == "DEACTIVATE_PARTITION_A":
             alarm.deactivate_partition_A
         elif cmd == "ACTIVATE_PARTITION_B":
             alarm.activate_partition_B
         elif cmd == "DEACTIVATE_PARTITION_B":
-            alarm.deactivate_partition_B        
+            alarm.deactivate_partition_B
+        elif cmd == "ACTIVATE_PARTITION_C":
+            alarm.activate_partition_C
+        elif cmd == "DEACTIVATE_PARTITION_C":
+            alarm.deactivate_partition_C
+        elif cmd == "ACTIVATE_PARTITION_D":
+            alarm.activate_partition_D
+        elif cmd == "DEACTIVATE_PARTITION_D":
+            alarm.deactivate_partition_D                                
     except Exception as err:
         logger.error("Erro ao executar o comando %s na central."%(cmd))
         logger.exception(err)

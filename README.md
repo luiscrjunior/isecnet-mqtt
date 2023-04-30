@@ -14,14 +14,20 @@ Envia o status das partições A, B, C e D e se a sirene está ativada.
 
 Mensagem de status:
 ```json
-{"siren_triggered": false, "partition_A": false, "partition_B": false, "partition_C": false, "partition_D": false}
+{"siren_triggered": false, "is_partitioned": true, "activated": false, "partition_A": false, "partition_B": false, "partition_C": false, "partition_D": false, "firmware_version_number": 87, "firmware_version": "5.7", "date_time": "30/4/2023 12:40"}
 ```
 
 Recebe os comandos:
+- ACTIVATE_ALARM
+- DEACTIVATE_ALARM
 - ACTIVATE_PARTITION_A
 - DEACTIVATE_PARTITION_A
 - ACTIVATE_PARTITION_B
 - DEACTIVATE_PARTITION_B
+- ACTIVATE_PARTITION_C
+- DEACTIVATE_PARTITION_C
+- ACTIVATE_PARTITION_D
+- DEACTIVATE_PARTITION_D
 
 Essa é uma primeira versão, bem básica. Outras funcionalidades/comandos podem ser incorporadas (ler zonas, pgms etc).
 
