@@ -17,7 +17,7 @@ Mensagem de status:
 {
   "siren_triggered": false,
   "is_partitioned": true,
-  "activated": "off", #pode ser 'off', 'full' ou 'partial'
+  "activated": "off", //pode ser 'off', 'full' ou 'partial'
   "partition_A": false,
   "partition_B": false,
   "partition_C": false,
@@ -81,3 +81,15 @@ mqtt_topic_alarm_control: "alarm/control"
 Instale as dependências com `pip install -r requirements.txt` e depois execute a aplicação com `python app.py`
 
 Versão python >= 3.11.
+
+### Contribuições
+
+Contribuições são bem vindas! Fique à vontade.
+
+### Referências/Créditos/Inspirações
+
+https://github.com/thspinto/isecnet-go
+
+https://github.com/jrbenito/isec-wireshark
+
+https://github.com/felipealmeida/amt2018
