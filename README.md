@@ -13,8 +13,19 @@ Foi desenvolvida para integrar a central com o Home Assistant:
 Envia o status das partições A, B, C e D e se a sirene está ativada.
 
 Mensagem de status:
-```json
-{"siren_triggered": false, "is_partitioned": true, "activated": false, "partition_A": false, "partition_B": false, "partition_C": false, "partition_D": false, "firmware_version_number": 87, "firmware_version": "5.7", "date_time": "30/4/2023 12:40"}
+```jsonc
+{
+  "siren_triggered": false,
+  "is_partitioned": true,
+  "activated": "off", #pode ser 'off', 'full' ou 'partial'
+  "partition_A": false,
+  "partition_B": false,
+  "partition_C": false,
+  "partition_D": false,
+  "firmware_version_number": 87,
+  "firmware_version": "5.7",
+  "date_time": "30/4/2023 14:4"
+}
 ```
 
 Recebe os comandos:
