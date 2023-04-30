@@ -4,7 +4,9 @@ Pequena aplicação escrita em python que se comunica com a central de Alarme In
 
 Também escuta um outro tópico para receber comandos.
 
-Foi desenvolvida para integrar a central com o Home Assistant.
+Foi desenvolvida para integrar a central com o Home Assistant:
+
+![image](https://user-images.githubusercontent.com/13292515/235346988-90c94ed3-2652-49b6-8099-e911d9931f56.png)
 
 ## Funcionalidades
 
@@ -21,7 +23,7 @@ Recebe os comandos:
 - ACTIVATE_PARTITION_B
 - DEACTIVATE_PARTITION_B
 
-Essa é uma primeira versão, bem básica. Outras funcionalidades/comandos podem ser incorporados (ler zonas, pgms etc).
+Essa é uma primeira versão, bem básica. Outras funcionalidades/comandos podem ser incorporadas (ler zonas, pgms etc).
 
 ## Instalação
 
