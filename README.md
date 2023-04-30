@@ -21,7 +21,7 @@ Recebe os comandos:
 - ACTIVATE_PARTITION_B
 - DEACTIVATE_PARTITION_B
 
-Essa é uma primeira versão, bem básica. Outras funcionalidades/comandos podem ser incorporados (ler zonas, pgms..).
+Essa é uma primeira versão, bem básica. Outras funcionalidades/comandos podem ser incorporados (ler zonas, pgms etc).
 
 ## Instalação
 
@@ -59,6 +59,6 @@ mqtt_topic_alarm_status: "alarm/status"
 mqtt_topic_alarm_control: "alarm/control"
 ```
 
-Execute a aplicação com `python app.py`
+Instale as dependências com `pip install -r requirements.txt` e depois execute a aplicação com `python app.py`
 
 Versão python >= 3.11.
