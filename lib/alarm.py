@@ -21,10 +21,15 @@ CMD_ACTIVATE_PARTITION_D = [0x41, 0x44]
 CMD_DEACTIVATE_PARTITION_D = [0x44, 0x44]
 
 
+class AlarmCentralActivationStatus(str, Enum):
+    off = 'off'
+    full = 'full'
+    partial = 'partial'
+
 class AlarmCentralPartialStatus(BaseModel):
     siren_triggered: bool = False
     is_partitioned: bool = False
-    activated: bool = False
+    activated: AlarmCentralActivationStatus = AlarmCentralActivationStatus.off
     partition_A: bool = False
     partition_B: bool = False
     partition_C: bool = False
@@ -40,6 +45,17 @@ def _parse_date(response: list[int]) -> str:
     month = response[35]
     year = 2000 + response[36]
     return "%s/%s/%s %s:%s"%(day,month,year,hour,minute)
+
+
+def _get_activation_status(response: list[int], alarm_status: AlarmCentralPartialStatus) -> AlarmCentralActivationStatus:
+    activated = True if _int_to_binary(response[31])[4] == '1' else False
+    if activated:
+        if alarm_status.partition_A and alarm_status.partition_B and alarm_status.partition_C and alarm_status.partition_D:
+            return AlarmCentralActivationStatus.full
+        else:
+            return AlarmCentralActivationStatus.partial
+    else:
+        return AlarmCentralActivationStatus.off
 
 def _int_to_binary(number: int) -> str:
     return '{0:08b}'.format(number)
@@ -89,7 +105,6 @@ def request_partial_status() -> AlarmCentralPartialStatus:
         raise Exception("Recebida resposta inválida da Central.")
     #TODO: Checar o código de resposta se sucesso
     alarm_status = AlarmCentralPartialStatus()
-    alarm_status.activated = True if _int_to_binary(response[31])[4] == '1' else False
     alarm_status.is_partitioned = True if _int_to_binary(response[28])[7] == '1' else False
     alarm_status.partition_A = True if _int_to_binary(response[29])[7] == '1' else False
     alarm_status.partition_B = True if _int_to_binary(response[29])[6] == '1' else False
@@ -99,6 +114,7 @@ def request_partial_status() -> AlarmCentralPartialStatus:
     alarm_status.firmware_version_number = response[27] 
     alarm_status.firmware_version = "%s.%s"%(response[27] >> 4,response[27]&0x0f)
     alarm_status.date_time = _parse_date(response)
+    alarm_status.activated = _get_activation_status(response, alarm_status)
     return alarm_status
 
 def activate_alarm():
