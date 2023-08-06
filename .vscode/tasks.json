@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run app",
+            "type": "shell",
+            "command": "source venv/bin/activate && python app.py && deactivate",
+            "problemMatcher": []
+        }
+    ]
+}
