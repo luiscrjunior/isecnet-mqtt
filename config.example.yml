@@ -1,23 +1,23 @@
 #IP da Central de Alarme
-alarm_addr: 192.168.x.x
+alarm_addr: "192.168.x.x"
 
 #Porta da Central de Alarme (padrão: 9009)
 alarm_port: 9009
 
 #Senha da Central de Alarme
-alarm_passwd: 1234
+alarm_passwd: "1234"
 
 #IP/Host do servidor MQTT
-mqtt_addr: 192.168.x.x
+mqtt_addr: "192.168.x.x"
 
 #Porta do servidor MQTT
 mqtt_port: 1883
 
 #Usuário MQTT
-mqtt_user: usuario
+mqtt_user: "usuario"
 
 #Senha MQTT
-mqtt_passwd: senha
+mqtt_passwd: "senha"
 
 #De quanto em quanto tempo o status da central vai ser enviado (em segundos)
 send_status_interval: 10
