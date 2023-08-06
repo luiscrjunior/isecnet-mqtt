@@ -81,7 +81,7 @@ def _generate_data_frame(command: list[int]) -> list[int]:
 def _pretty(command: list[int]) -> str:
     return "[" + ",".join(map(hex,command)) + "]"
 
-def _send_alarm_cmd(command: list[int]) -> None or list[int]:
+def _send_alarm_cmd(command: list[int]) -> None | list[int]:
     frame = _generate_data_frame(command)
     logger.debug("Conectando com a central...")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
